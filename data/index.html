@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word lists · Le La El La</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <a class="brand" href="../">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ea0ff"/><stop offset="1" stop-color="#2563d9"/></linearGradient><linearGradient id="o" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffa36b"/><stop offset="1" stop-color="#e2561a"/></linearGradient></defs><rect width="64" height="64" fill="#101d55"/><g transform="rotate(-6 23 23)"><rect x="9" y="9" width="27" height="25" rx="5.5" fill="url(#b)"/><text x="22.5" y="28" font-size="18" font-weight="800" text-anchor="middle" font-family="ui-rounded, -apple-system, sans-serif" fill="#fff">le</text></g><g transform="rotate(6 41 41)"><rect x="27" y="29" width="27" height="25" rx="5.5" fill="url(#o)"/><text x="40.5" y="48" font-size="18" font-weight="800" text-anchor="middle" font-family="ui-rounded, -apple-system, sans-serif" fill="#fff">la</text></g></svg>
+    <span>Le La El La</span>
+  </a>
+  <h1>Word lists</h1>
+  <p class="meta">The noun lists used by Le La El La: French &amp; Spanish</p>
+
+  <div class="card">
+    <ul class="links">
+      <li><a href="french-nouns.json" download>french-nouns.json<small>About 620 KB · 19,102 French nouns with gender and a short English meaning, commonest first</small></a></li>
+      <li><a href="spanish-nouns.json" download>spanish-nouns.json<small>About 300 KB · 9,118 Spanish nouns with gender and a short English meaning, commonest first</small></a></li>
+    </ul>
+  </div>
+
+  <h2>Licence</h2>
+  <p>These files are adapted from the sources below and are shared under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a> licence: you may use, share and adapt them, including commercially, as long as you credit the sources below and share your adaptations under the same licence. The app's own code isn't covered by this licence.</p>
+
+  <h2>French sources</h2>
+  <p><strong>How common each noun is, and its gender:</strong> <a href="http://www.lexique.org">Lexique 3.83</a> by Boris New, Christophe Pallier and colleagues, licensed under CC BY-SA 4.0. Nouns are ranked by their frequency in film subtitles and books.</p>
+  <p>New, B., Pallier, C., Brysbaert, M. and Ferrand, L. (2004). Lexique 2: A New French Lexical Database. <i>Behavior Research Methods, Instruments, &amp; Computers</i>, 36(3), 516–524.</p>
+  <p>New, B., Brysbaert, M., Veronis, J. and Pallier, C. (2007). The use of film subtitles to estimate word frequencies. <i>Applied Psycholinguistics</i>, 28(4), 661–677.</p>
+  <p><strong>English meanings, and the gender of the common nouns that Lexique leaves blank:</strong> the <a href="https://en.wiktionary.org">English Wiktionary</a>, by Wiktionary contributors, as extracted by <a href="https://kaikki.org">Kaikki</a> (wiktextract), licensed under CC BY-SA 4.0.</p>
+
+  <h2>Spanish sources</h2>
+  <p><strong>Gender and English meanings:</strong> the <a href="https://en.wiktionary.org">English Wiktionary</a>, by Wiktionary contributors, licensed under CC BY-SA, as prepared by the <a href="https://github.com/doozan/spanish_data">spanish_data</a> project.</p>
+  <p><strong>How common each noun is:</strong> the word-frequency list from the same project, which was built from <a href="https://github.com/hermitdave/FrequencyWords">FrequencyWords</a> by Hermit Dave (CC BY-SA), itself built from <a href="https://www.opensubtitles.org">OpenSubtitles</a>. Word forms are combined under their dictionary form.</p>
+
+  <h2>What was changed</h2>
+  <p><strong>Nouns only.</strong> Words that Lexique or the frequency list find mostly used as another part of speech (<i lang="fr">être</i>, <i lang="fr">pas</i>, <i lang="es">mía</i>) are left out.</p>
+  <p><strong>Clear genders only.</strong> Nouns whose gender depends on the person (<i lang="fr">médecin</i>, <i lang="es">estudiante</i>), that can take either gender (<i lang="es">mar</i>, <i lang="es">color</i>), or that are plural-only are left out. Nouns that change gender with their meaning (<i lang="fr">tour</i>, <i lang="es">parte</i>) are kept separate, in <code>mixed</code>. Slang and regional senses (Quebec, Latin America and so on) are ignored when deciding a gender, so <i lang="es">mano</i> is feminine even though one slang sense is masculine.</p>
+  <p><strong>Corrections.</strong> The Wiktionary extract for French has the wrong gender for some words (for example <i lang="fr">calamité</i>, <i lang="fr">osmose</i> and <i lang="fr">géranium</i>), so for French Lexique's gender is used wherever it has one, and Wiktionary's only where Lexique has none. A small number of other entries were corrected by hand. A few crude words were removed.</p>
+  <p><strong>Short meanings.</strong> Up to two of the first senses were kept for each noun and shortened, so they are a cue for the word, not a full definition. If you see a wrong gender or an odd meaning, please <a href="../support/">tell me</a>.</p>
+
+  <h2>Format</h2>
+  <p><code>{"nouns": [[word, "m" | "f", "meaning"], …], "mixed": [[word, [["m", "meaning"], ["f", "meaning"]]], …]}</code>. <code>nouns</code> is in order of frequency, commonest first. <code>mixed</code> lists nouns whose gender depends on the meaning, with each gender's meaning.</p>
+  <footer>Le La El La · <a href="../support/">Support</a> · <a href="../privacy/">Privacy Policy</a></footer>
+</main>
+</body>
+</html>
