@@ -17,8 +17,8 @@
 
   <div class="card">
     <ul class="links">
-      <li><a href="french-nouns.json" download>french-nouns.json<small>About 620 KB · 19,102 French nouns with gender and a short English meaning, commonest first</small></a></li>
-      <li><a href="spanish-nouns.json" download>spanish-nouns.json<small>About 300 KB · 9,118 Spanish nouns with gender and a short English meaning, commonest first</small></a></li>
+      <li><a href="french-nouns.json" download>french-nouns.json<small>About 1,155 KB · 19,102 French nouns with gender and English meanings, commonest first, plus 56 whose gender depends on the meaning and 518 more for lookup</small></a></li>
+      <li><a href="spanish-nouns.json" download>spanish-nouns.json<small>About 625 KB · 9,118 Spanish nouns with gender and English meanings, commonest first, plus 49 whose gender depends on the meaning and 411 more for lookup</small></a></li>
     </ul>
   </div>
 
@@ -37,12 +37,15 @@
 
   <h2>What was changed</h2>
   <p><strong>Nouns only.</strong> Words that Lexique or the frequency list find mostly used as another part of speech (<i lang="fr">être</i>, <i lang="fr">pas</i>, <i lang="es">mía</i>) are left out.</p>
-  <p><strong>Clear genders only.</strong> Nouns whose gender depends on the person (<i lang="fr">médecin</i>, <i lang="es">estudiante</i>), that can take either gender (<i lang="es">mar</i>, <i lang="es">color</i>), or that are plural-only are left out. Nouns that change gender with their meaning (<i lang="fr">tour</i>, <i lang="es">parte</i>) are kept separate, in <code>mixed</code>. Slang and regional senses (Quebec, Latin America and so on) are ignored when deciding a gender, so <i lang="es">mano</i> is feminine even though one slang sense is masculine.</p>
+  <p><strong>Clear genders only.</strong> Nouns whose gender depends on the person (<i lang="fr">médecin</i>, <i lang="es">estudiante</i>), that can take either gender (<i lang="es">mar</i>, <i lang="es">color</i>), or that are plural-only are left out of the quiz (they are kept for lookup, in <code>other</code>). Nouns that change gender with their meaning (<i lang="fr">tour</i>, <i lang="es">parte</i>) are kept separate, in <code>mixed</code>. Slang and regional senses (Quebec, Latin America and so on) are ignored when deciding a gender, so <i lang="es">mano</i> is feminine even though one slang sense is masculine.</p>
   <p><strong>Corrections.</strong> The Wiktionary extract for French has the wrong gender for some words (for example <i lang="fr">calamité</i>, <i lang="fr">osmose</i> and <i lang="fr">géranium</i>), so for French Lexique's gender is used wherever it has one, and Wiktionary's only where Lexique has none. A small number of other entries were corrected by hand. A few crude words were removed.</p>
-  <p><strong>Short meanings.</strong> Up to two of the first senses were kept for each noun and shortened, so they are a cue for the word, not a full definition. If you see a wrong gender or an odd meaning, please <a href="../support/">tell me</a>.</p>
+  <p><strong>Meanings.</strong> The English meanings are the short synonyms from the first senses in Wiktionary, with long definitions left out, so they are a cue for the word, not a full definition, and they follow Wiktionary's order. If you see a wrong gender or an odd meaning, please <a href="../support/">tell me</a>.</p>
 
   <h2>Format</h2>
-  <p><code>{"nouns": [[word, "m" | "f", "meaning"], …], "mixed": [[word, [["m", "meaning"], ["f", "meaning"]]], …]}</code>. <code>nouns</code> is in order of frequency, commonest first. <code>mixed</code> lists nouns whose gender depends on the meaning, with each gender's meaning.</p>
+  <p><code>{"nouns": [[word, "m" | "f", "meaning", [terms]], …], "mixed": […], "other": […]}</code></p>
+  <p><code>nouns</code> is in order of frequency, commonest first. <code>meaning</code> is the short English meaning shown in the app (up to three meanings joined by " / "), and <code>terms</code> is every English meaning found for the noun, used by the app's lookup.</p>
+  <p><code>mixed</code> lists nouns whose gender depends on the meaning: <code>[word, [["m", "meaning"], ["f", "meaning"]]]</code>. <code>other</code> lists nouns the app looks up but doesn't quiz, because their gender isn't a single fixed one: <code>[word, "person" | "either", "meaning", [terms]]</code>, where "person" means masculine or feminine according to the person or the meaning (<i lang="es">el/la médico</i>) and "either" means either gender is used (<i lang="es">el/la mar</i>).</p>
+
   <footer>Le La El La · <a href="../support/">Support</a> · <a href="../privacy/">Privacy Policy</a></footer>
 </main>
 </body>
